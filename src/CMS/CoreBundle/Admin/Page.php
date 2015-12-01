@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 
 class Page extends Admin
 {
@@ -18,20 +17,17 @@ class Page extends Admin
     protected function configureFormFields(FormMapper $form)
     {
         $form
-            ->with('Pagina')
-            ->add('title', null, [
-                'label' => 'Titolo'
-            ])
+            ->with('Page')
+            ->add('title')
             ->add('content', 'ckeditor', [
-                'config_name' => 'page',
-                'label'       => 'Contenuto'
+                'config_name' => 'page'
             ])
             ->end()
         ;
 
         if ($this->getSubject()) {
             $form
-                ->with('Rotta')
+                ->with('Route')
                 ->add('slug', null, [
                     'required' => false
                 ])
@@ -48,7 +44,7 @@ class Page extends Admin
         ;
 
         $form->setHelps([
-            'slug' => "Se lasciato vuoto viene automaticamente creato dal titolo della pagina.<br/><br/> <b>Esempio:</b> <br/> <b>Titolo</b>: Chi Siamo <br/> <b>Slug</b>: chi-siamo"
+            'slug' => "If you leave empty it will be automatically created from the page title.<br/><br/> <b>Example:</b> <br/> <b>Title</b>: This article <br/> <b>Slug</b>: this-article"
         ]);
     }
 

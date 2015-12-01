@@ -36,6 +36,7 @@ SimpleCMS
 ##Document
 
 - Page
+- SeoMetaData
 - User
 
 ##Controller
