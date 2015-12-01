@@ -33,9 +33,6 @@ SimpleCMS
 - "stof/doctrine-extensions-bundle": "~1.2",
 - "egeloen/ckeditor-bundle": "~3.0"
 
-CoreBundle
-=======================
-
 ##Document
 
 - Page
