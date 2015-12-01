@@ -1,0 +1,7 @@
+cms_core.home:
+  resource: @CMSCoreBundle/Controller/HomeController.php
+  type: annotation
+
+cms_core.page:
+  resource: @CMSCoreBundle/Controller/PageController.php
+  type: annotation

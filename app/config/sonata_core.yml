@@ -1,0 +1,17 @@
+sonata_core: ~
+
+sonata_admin:
+    title: Content Admin
+    options: { use_select2: true }
+    templates:
+        layout:  SonataAdminBundle::layout.html.twig
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+        sonata.block.service.dashboard_overview:
+            contexts:   [admin]

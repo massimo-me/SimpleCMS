@@ -1,0 +1,43 @@
+parameters:
+  cms_core.admin.user.class: CMS\CoreBundle\Admin\User
+  cms_core.document.user.class: CMS\CoreBundle\Document\User
+
+  cms_core.admin.page.class: CMS\CoreBundle\Admin\Page
+  cms_core.document.page.class: CMS\CoreBundle\Document\Page
+
+  cms_core.admin.seo_meta_data.class: CMS\CoreBundle\Admin\SeoMetaData
+  cms_core.document.seo_meta_data.class: CMS\CoreBundle\Document\SeoMetaData
+
+services:
+    cms_core.admin.user:
+          class: %cms_core.admin.user.class%
+          tags:
+              - { name: sonata.admin, manager_type: doctrine_mongodb, group: "Core", label: "Utenti" }
+          arguments:
+            - ~
+            - %cms_core.document.user.class%
+            - ~
+          calls:
+              - [ setTranslationDomain, [CMSCoreBundle]]
+
+    cms_core.admin.page:
+              class: %cms_core.admin.page.class%
+              tags:
+                  - { name: sonata.admin, manager_type: doctrine_mongodb, group: "Core", label: "Pagine" }
+              arguments:
+                - ~
+                - %cms_core.document.page.class%
+                - ~
+              calls:
+                  - [ setTranslationDomain, [CMSCoreBundle]]
+
+    cms_core.admin.seo_meta_data:
+              class: %cms_core.admin.seo_meta_data.class%
+              tags:
+                  - { name: sonata.admin, manager_type: doctrine_mongodb, group: "Core", label: "Seo Meta" }
+              arguments:
+                - ~
+                - %cms_core.document.seo_meta_data.class%
+                - ~
+              calls:
+                  - [ setTranslationDomain, [CMSCoreBundle]]
